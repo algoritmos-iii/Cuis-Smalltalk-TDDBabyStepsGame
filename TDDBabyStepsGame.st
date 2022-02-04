@@ -761,7 +761,7 @@ start
 
 !classDefinition: #TDDBabyStepsGameDemo category: 'TDDBabyStepsGame'!
 Object subclass: #TDDBabyStepsGameDemo
-	instanceVariableNames: ''
+	instanceVariableNames: 'game'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'TDDBabyStepsGame'!
@@ -779,16 +779,19 @@ build
 
 	! !
 
-!TDDBabyStepsGameDemo methodsFor: 'building' stamp: 'JMB 11/16/2021 22:48:18'!
+!TDDBabyStepsGameDemo methodsFor: 'building' stamp: 'JMB 2/3/2022 22:42:39'!
 start
-	^ self build! !
+	game := self build.
+	self createTestCaseContext. 
+	^ game start! !
 
 
-!TDDBabyStepsGameDemo methodsFor: 'private' stamp: 'JMB 11/16/2021 22:33:15'!
+!TDDBabyStepsGameDemo methodsFor: 'private' stamp: 'JMB 2/3/2022 22:40:29'!
 buildGame
-	^ TDDBabyStepsGame startNamed: self name withCases: self cases inCategory: 'TDDBabyStepsGame', self name capitalized withDefinition: self definition.
+	^ TDDBabyStepsGame startNamed: self name withCases: self cases inCategory: 'TDDBabyStepsGame', self name capitalized withDefinition: self definition.! !
 
-	! !
+!TDDBabyStepsGameDemo methodsFor: 'private' stamp: 'JMB 2/3/2022 22:40:52'!
+createTestCaseContext! !
 
 !TDDBabyStepsGameDemo methodsFor: 'private' stamp: 'FL 11/12/2021 15:00:37'!
 definition
